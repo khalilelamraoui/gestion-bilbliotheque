@@ -1,3 +1,4 @@
+import { HeroParallaxDemo } from '@/components/Books-hero'
 import React from 'react'
 
 export default function 
@@ -7,6 +8,7 @@ export default function
     <div>
       <h1 className='text-center mb-20'>Book page</h1>
       <a href="/available" >available items</a>
+      <HeroParallaxDemo />
     </div>
   )
 }

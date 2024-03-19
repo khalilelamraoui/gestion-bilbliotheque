@@ -5,3 +5,6 @@ py manage.py reunserver OR
 cd /fronend
 
 npm run dev 
+
+
+npm i framer-motion clsx tailwind-merge
