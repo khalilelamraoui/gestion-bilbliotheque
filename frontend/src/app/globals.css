@@ -10,7 +10,7 @@
   
 }
 
-.menu-container {
+.book-container {
   max-width: 70%;
   height: 90vh;
   margin: 0 auto;
@@ -20,7 +20,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.menu-item {
+.book-item {
   border: 1px solid #ddd;
   padding: 10px;
   margin: 10px;
@@ -32,21 +32,22 @@
   background-color: #fff;
 }
 
-.menu-item-info {
+.book-item-info {
   display: flex;
   flex-direction: column;
 }
 
-.menu-item-name {
+.book-item-name {
   font-size: 1.2rem;
   font-weight: 600;
+  color: #333;
 }
 
-.menu-item-price {
+.book-item-price {
   color: #555;
 }
 
-.menu-item-actions {
+.book-item-actions {
   display: flex;
   gap: 10px;
 }

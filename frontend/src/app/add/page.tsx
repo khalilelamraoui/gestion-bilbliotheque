@@ -7,8 +7,8 @@ import { useRouter } from "next/navigation";
  * Sends a POST request to create a new menu item.
  * @param {Object} data The menu item data to be sent.
  */
-async function createMenu(data: { name: string; price: string; }) {
-  const res = await fetch("http://127.0.0.1:8000/api/menu/", {
+async function createBook(data: { name: string; price: string; }) {
+  const res = await fetch("http://127.0.0.1:8000/api/book/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -36,7 +36,7 @@ const Page = () => {
     const onFinish = (event: Event) => {
       event.preventDefault();
       setIsLoading(true);
-      createMenu(formData)
+      createBook(formData)
         .then(() => {
           // Navigate to the main page with a query parameter indicating success
           router.replace("/?action=add");

@@ -5,24 +5,24 @@ import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 /**
- * Fetches a menu item by ID.
- * @param {number} id The ID of the menu item to retrieve.
+ * Fetches a book item by ID.
+ * @param {number} id The ID of the book item to retrieve.
  */
-async function deleteMenu(id) {
-  const res = await fetch(`http://127.0.0.1:8000/api/menu/${id}/`, {
+async function deleteBook(id) {
+  const res = await fetch(`http://127.0.0.1:8000/api/book/${id}/`, {
     method: "DELETE",
   });
   if (!res.ok) {
-    throw new Error("Failed to retrieve menu");
+    throw new Error("Failed to retrieve book");
   }
   return Promise.resolve();
 }
 
 /**
- * Fetches menu data from the server.
+ * Fetches book data from the server.
  */
 async function getData() {
-  const res = await fetch("http://127.0.0.1:8000/api/menu/");
+  const res = await fetch("http://127.0.0.1:8000/api/book/");
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -33,14 +33,27 @@ async function getData() {
 
 
 /**
- * Represents a single menu item.
+ * Represents a single book item.
  */
-const MenuItem = ({ id, name, price, onEdit, onDelete }) => {
+const BookItem = ({ id, name, price, onEdit, onDelete }) => {
   return (
-    <div className="menu-item w-[100px]" data-id={id}>
-      <div className="menu-item-info">
-        <div className="menu-item-name">{name}</div>
-        <div className="menu-item-price">${price.toFixed(2)}</div>
+    <div className="book-item" data-id={id}>
+      <div className="book-item-info">
+        <div className="book-item-name">{name}</div>
+        <div className="book-item-price">${price.toFixed(2)}</div>
+      </div>
+      <div className="book-item-actions">
+        <button className="edit-button" onClick={onEdit}>
+          Edit
+        </button>
+        <button
+          className="delete-button"
+          onClick={() => {
+            deleteBook(id).then(() => onDelete(id));
+          }}
+        >
+          Delete
+        </button>
       </div>
     </div>
   );
@@ -52,7 +65,7 @@ const MenuItem = ({ id, name, price, onEdit, onDelete }) => {
  * The main page component.
  */
 export default function Page() {
-  const [menuItems, setMenuItems] = useState(null);
+  const [bookItems, setBookItems] = useState(null);
   const router = useRouter();
   const params = useSearchParams();
 
@@ -62,11 +75,11 @@ export default function Page() {
     type: "", // either 'add' or 'update'
   });
 
-  // Fetch menu items on component mount
+  // Fetch book items on component mount
   useEffect(() => {
     const fetchData = async () => {
       const data = await getData();
-      setMenuItems(data);
+      setBookItems(data);
     };
     fetchData().catch(console.error);
   }, []);
@@ -92,9 +105,9 @@ export default function Page() {
     return () => clearTimeout(timer);
   }, [displaySuccessMessage.show]);
 
-  // Handle deletion of a menu item
+  // Handle deletion of a book item
   const handleDelete = (id) => {
-    setMenuItems((items) => items.filter((item) => item.id !== id));
+    setBookItems((items) => items.filter((item) => item.id !== id));
   };
 
   return (
@@ -104,18 +117,19 @@ export default function Page() {
       </button>
       {displaySuccessMessage.show && (
         <p className="success-message">
-          {displaySuccessMessage.type === "add" ? "Added a" : "Modified a"} menu
+          {displaySuccessMessage.type === "add" ? "Added a" : "Modified a"} book
           item.
         </p>
       )}
-      {menuItems ? (
-        menuItems.map((item) => (
-          <MenuItem
+      {bookItems ? (
+        bookItems.map((item) => (
+          <BookItem
             key={item.id}
             id={item.id}
             name={item.name}
             price={item.price}
             onEdit={() => router.push(`/update/${item.id}`)}
+            
             onDelete={handleDelete}
           />
         ))

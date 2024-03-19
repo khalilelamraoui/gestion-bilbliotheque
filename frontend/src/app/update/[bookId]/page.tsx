@@ -7,10 +7,10 @@ import { useRouter } from "next/navigation";
  * Fetches a menu item by ID.
  * @param {number} id The ID of the menu item to retrieve.
  */
-async function getMenu(id) {
-  const res = await fetch(`http://127.0.0.1:8000/api/menu/${id}/`);
+async function getBook(id: any) {
+  const res = await fetch(`http://127.0.0.1:8000/api/book/${id}/`);
   if (!res.ok) {
-    throw new Error("Failed to retrieve menu");
+    throw new Error("Failed to retrieve book");
   }
   return res.json();
 }
@@ -20,20 +20,20 @@ async function getMenu(id) {
  * @param {number} id The ID of the menu item to update.
  * @param {Object} data The updated data for the menu item.
  */
-async function updateMenu(id, data) {
-  const res = await fetch(`http://127.0.0.1:8000/api/menu/${id}/`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed to update menu");
+async function updateBook(id, data) {
+    const res = await fetch(`http://127.0.0.1:8000/api/book/${id}/`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  
+    if (!res.ok) {
+      throw new Error("Failed to update book");
+    }
+    return res.json();
   }
-  return res.json();
-}
 
 
 
@@ -47,10 +47,10 @@ const Page = ({ params }) => {
      * Handles form submission.
      * @param {Event} event The form submission event.
      */
-    const onFinish = (event) => {
+    const onFinish = (event: { preventDefault: () => void; }) => {
       event.preventDefault();
       setIsLoading(true);
-      updateMenu(params.menuId, formData)
+      updateBook(params.bookId, formData)
         .then(() => {
           router.replace("/?action=update");
         })
@@ -69,14 +69,14 @@ const Page = ({ params }) => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const data = await getMenu(params.menuId);
+          const data = await getBook(params.bookId);
           setFormData({ name: data.name, price: data.price });
         } catch (error) {
           setError(error.message);
         }
       };
       fetchData();
-    }, [params.menuId]);
+    }, [params.bookId]);
   
     return (
       <form onSubmit={onFinish}>
