@@ -35,12 +35,12 @@ async function getData() {
 /**
  * Represents a single book item.
  */
-const BookItem = ({ id, name, price, onEdit, onDelete }) => {
+const BookItem = ({ id, name, quantity, onEdit, onDelete }) => {
   return (
     <div className="book-item" data-id={id}>
       <div className="book-item-info">
         <div className="book-item-name">{name}</div>
-        <div className="book-item-price">${price.toFixed(2)}</div>
+        <div className="book-item-price">{quantity}</div>
       </div>
       <div className="book-item-actions">
         <button className="edit-button" onClick={onEdit}>
@@ -127,7 +127,7 @@ export default function Page() {
             key={item.id}
             id={item.id}
             name={item.name}
-            price={item.price}
+            quantity={item.quantity}
             onEdit={() => router.push(`/update/${item.id}`)}
             
             onDelete={handleDelete}

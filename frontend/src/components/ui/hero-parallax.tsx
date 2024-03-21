@@ -19,9 +19,10 @@ export const HeroParallax = ({
     thumbnail: string;
   }[];
 }) => {
-  const firstRow = products.slice(0, 5);
-  const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
+  const firstRow = products.slice(0, 6);
+  const secondRow = products.slice(5, 13);
+  const thirdRow = products.slice(10, 18);
+  const fourthRow = products.slice(15, );
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -57,7 +58,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[400vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -69,7 +70,7 @@ export const HeroParallax = ({
         }}
         className=""
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
+        <motion.div className="flex flex-row-reverse space-x-2 space-x-20 mb-10">
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -78,7 +79,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row  mb-20 space-x-20 ">
+        <motion.div className="flex flex-row  mb-10 space-x-20 ">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -87,11 +88,20 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
+        <motion.div className="flex flex-row-reverse mb-10 space-x-reverse space-x-20">
           {thirdRow.map((product) => (
             <ProductCard
               product={product}
               translate={translateX}
+              key={product.title}
+            />
+          ))}
+        </motion.div>
+        <motion.div className="flex flex-row  mb-10 space-x-20 ">
+          {fourthRow.map((product) => (
+            <ProductCard
+              product={product}
+              translate={translateXReverse}
               key={product.title}
             />
           ))}
@@ -136,7 +146,7 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0"
+      className="group/product h-96 w-[17rem] relative flex-shrink-0"
     >
       <Link
         href={product.link}

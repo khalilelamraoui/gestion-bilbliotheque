@@ -35,11 +35,21 @@ async function updateBook(id, data) {
     return res.json();
   }
 
+  async function deleteBook(id: any) {
+    const res = await fetch(`http://127.0.0.1:8000/api/book/${id}/`, {
+      method: "DELETE",
+    });
+  
+    if (!res.ok) {
+      throw new Error("Failed to delete book");
+    }
+  }
+  
 
 
 const Page = ({ params }) => {
     const router = useRouter();
-    const [formData, setFormData] = useState({ name: "", price: "" });
+    const [formData, setFormData] = useState({ name: "", quantity: "" });
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
   
@@ -70,7 +80,7 @@ const Page = ({ params }) => {
       const fetchData = async () => {
         try {
           const data = await getBook(params.bookId);
-          setFormData({ name: data.name, price: data.price });
+          setFormData({ name: data.name, quantity: data.quantity});
         } catch (error) {
           setError(error.message);
         }
@@ -90,13 +100,13 @@ const Page = ({ params }) => {
           />
         </div>
         <div className="form-item">
-          <label htmlFor="price">Price</label>
+          <label htmlFor="quantity">Quantity</label>
           <input
             required
             type="number"
-            name="price"
-            value={formData.price}
-            onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+            name="quantity"
+            value={formData.quantity}
+            onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
           />
         </div>
         {error && <p className="error-message">{error}</p>}

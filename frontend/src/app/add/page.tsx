@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
  * Sends a POST request to create a new menu item.
  * @param {Object} data The menu item data to be sent.
  */
-async function createBook(data: { name: string; price: string; }) {
+async function createBook(data: { name: string; quantity: string}) {
   const res = await fetch("http://127.0.0.1:8000/api/book/", {
     method: "POST",
     headers: {
@@ -25,7 +25,7 @@ async function createBook(data: { name: string; price: string; }) {
 
 const Page = () => {
     const router = useRouter();
-    const [formData, setFormData] = useState({ name: "", price: "" });
+    const [formData, setFormData] = useState({ name: "" , quantity: ""});
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
   
@@ -66,14 +66,14 @@ const Page = () => {
           />
         </div>
         <div className="form-item">
-          <label htmlFor="price">Price</label>
+          <label htmlFor="quantity">Quantity</label>
           <input
             required
             type="number"
-            name="price"
-            value={formData.price}
+            name="quantity"
+            value={formData.quantity}
             onChange={(event) =>
-              setFormData({ ...formData, price: event.target.value })
+              setFormData({ ...formData, quantity: event.target.value })
             }
           />
         </div>

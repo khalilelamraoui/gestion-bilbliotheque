@@ -7,96 +7,103 @@ export function HeroParallaxDemo() {
 }
 export const products = [
   {
-    title: "Moonbeam",
-    link: "https://gomoonbeam.com",
-    thumbnail:
-      "https://source.unsplash.com/featured/?moon",
+    title: "Image 1",
+    link: "https://unsplash.com/photo1",
+    thumbnail: "https://source.unsplash.com/featured/?photo1",
   },
   {
-    title: "Cursor",
-    link: "https://cursor.so",
-    thumbnail:
-      "https://source.unsplash.com/featured/?cursor",
+    title: "Image 2",
+    link: "https://unsplash.com/photo2",
+    thumbnail: "https://source.unsplash.com/featured/?photo2",
   },
   {
-    title: "Rogue",
-    link: "https://userogue.com",
-    thumbnail:
-      "https://source.unsplash.com/featured/?rogue",
-  },
-
-  {
-    title: "Editorially",
-    link: "https://editorially.org",
-    thumbnail:
-      "https://source.unsplash.com/featured/?editorial",
+    title: "Image 3",
+    link: "https://unsplash.com/photo3",
+    thumbnail: "https://source.unsplash.com/featured/?photo3",
   },
   {
-    title: "Editrix AI",
-    link: "https://editrix.ai",
-    thumbnail:
-      "https://source.unsplash.com/featured/?editrix",
+    title: "Image 4",
+    link: "https://unsplash.com/photo4",
+    thumbnail: "https://source.unsplash.com/featured/?photo4",
   },
   {
-    title: "Pixel Perfect",
-    link: "https://app.pixelperfect.quest",
-    thumbnail:
-      "https://source.unsplash.com/featured/?pixel",
-  },
-
-  {
-    title: "Algochurn",
-    link: "https://algochurn.com",
-    thumbnail:
-      "https://source.unsplash.com/featured/?algo",
+    title: "Image 5",
+    link: "https://unsplash.com/photo5",
+    thumbnail: "https://source.unsplash.com/featured/?photo5",
   },
   {
-    title: "Aceternity UI",
-    link: "https://ui.aceternity.com",
-    thumbnail:
-      "https://source.unsplash.com/featured/?aceternity",
+    title: "Image 6",
+    link: "https://unsplash.com/photo6",
+    thumbnail: "https://source.unsplash.com/featured/?photo6",
   },
   {
-    title: "Tailwind Master Kit",
-    link: "https://tailwindmasterkit.com",
-    thumbnail:
-      "https://source.unsplash.com/featured/?tailwind",
+    title: "Image 7",
+    link: "https://unsplash.com/photo7",
+    thumbnail: "https://source.unsplash.com/featured/?photo7",
   },
   {
-    title: "SmartBridge",
-    link: "https://smartbridgetech.com",
-    thumbnail:
-      "https://source.unsplash.com/featured/?smartbridge",
+    title: "Image 8",
+    link: "https://unsplash.com/photo8",
+    thumbnail: "https://source.unsplash.com/featured/?photo8",
   },
   {
-    title: "Renderwork Studio",
-    link: "https://renderwork.studio",
-    thumbnail:
-      "https://source.unsplash.com/featured/?renderwork",
-  },
-
-  {
-    title: "Creme Digital",
-    link: "https://cremedigital.com",
-    thumbnail:
-      "https://source.unsplash.com/featured/?creme",
+    title: "Image 9",
+    link: "https://unsplash.com/photo9",
+    thumbnail: "https://source.unsplash.com/featured/?photo9",
   },
   {
-    title: "Golden Bells Academy",
-    link: "https://goldenbellsacademy.com",
-    thumbnail:
-      "https://source.unsplash.com/featured/?goldenbells",
+    title: "Image 10",
+    link: "https://unsplash.com/photo10",
+    thumbnail: "https://source.unsplash.com/featured/?photo10",
   },
   {
-    title: "Invoker Labs",
-    link: "https://invoker.lol",
-    thumbnail:
-      "https://source.unsplash.com/featured/?invoker",
+    title: "Image 11",
+    link: "https://unsplash.com/photo11",
+    thumbnail: "https://source.unsplash.com/featured/?photo11",
   },
   {
-    title: "E Free Invoice",
-    link: "https://efreeinvoice.com",
-    thumbnail:
-      "https://source.unsplash.com/featured/?invoice",
+    title: "Image 12",
+    link: "https://unsplash.com/photo12",
+    thumbnail: "https://source.unsplash.com/featured/?photo12",
+  },
+  {
+    title: "Image 13",
+    link: "https://unsplash.com/photo13",
+    thumbnail: "https://source.unsplash.com/featured/?photo13",
+  },
+  {
+    title: "Image 14",
+    link: "https://unsplash.com/photo14",
+    thumbnail: "https://source.unsplash.com/featured/?photo14",
+  },
+  {
+    title: "Image 15",
+    link: "https://unsplash.com/photo15",
+    thumbnail: "https://source.unsplash.com/featured/?photo15",
+  },
+  {
+    title: "Image 16",
+    link: "https://unsplash.com/photo16",
+    thumbnail: "https://source.unsplash.com/featured/?photo16",
+  },
+  {
+    title: "Image 17",
+    link: "https://unsplash.com/photo17",
+    thumbnail: "https://source.unsplash.com/featured/?photo17",
+  },
+  {
+    title: "Image 18",
+    link: "https://unsplash.com/photo18",
+    thumbnail: "https://source.unsplash.com/featured/?photo18",
+  },
+  {
+    title: "Image 19",
+    link: "https://unsplash.com/photo19",
+    thumbnail: "https://source.unsplash.com/featured/?photo19",
+  },
+  {
+    title: "Image 20",
+    link: "https://unsplash.com/photo20",
+    thumbnail: "https://source.unsplash.com/featured/?photo20",
   },
 ];

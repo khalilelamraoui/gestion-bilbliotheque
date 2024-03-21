@@ -9,6 +9,7 @@ export const metadata = {
   description: "A simple UI to handle books",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
