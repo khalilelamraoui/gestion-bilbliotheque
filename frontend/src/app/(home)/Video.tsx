@@ -10,8 +10,8 @@ const VideoSection: React.FC<VideoSectionProps> = ({ muted = true, loop = true }
     position: 'absolute',
     top: 0,
     left: 0,
-    width: '100%',
-    height: '100%',
+    width: '50%',
+    height: '50%',
     backgroundImage: 'url(/path/to/pixelated-image.jpg)', // Set the pixelated image as the background
     backgroundSize: '100% 100%', // Ensure the image covers the entire area
     pointerEvents: 'none', // Make sure the pixelated effect doesn't interfere with video playback

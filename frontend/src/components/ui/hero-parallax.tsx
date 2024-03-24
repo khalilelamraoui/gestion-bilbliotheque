@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+
 import {
   motion,
   useScroll,
@@ -9,6 +10,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import Video from "@/app/(home)/Video";
 
 export const HeroParallax = ({
   products,
@@ -22,7 +24,7 @@ export const HeroParallax = ({
   const firstRow = products.slice(0, 6);
   const secondRow = products.slice(5, 13);
   const thirdRow = products.slice(10, 18);
-  const fourthRow = products.slice(15, );
+  const fourthRow = products.slice(15);
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -56,11 +58,13 @@ export const HeroParallax = ({
     springConfig
   );
   return (
+    
     <div
       ref={ref}
       className="h-[400vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
+      
       <motion.div
         style={{
           rotateX,
@@ -107,7 +111,7 @@ export const HeroParallax = ({
           ))}
         </motion.div>
       </motion.div>
-    </div>
+      </div>
   );
 };
 
