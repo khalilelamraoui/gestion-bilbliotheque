@@ -16,6 +16,7 @@ export default function() {
       <h1 className='text-center mb-20'>Book page</h1>
       <a href="/available" >available items</a>
       <HeroParallaxDemo />
+      
       <Book />
       
     </div>

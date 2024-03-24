@@ -16,6 +16,15 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'lord-icon': any; // You can use 'any' or specify a more specific type if available
+    }
+  }
+}
+ 
+
 export default function Example() {
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -36,11 +45,12 @@ export default function Example() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
+                <div className="flex flex-shrink-0 items-center space-x-3">
+                  <img src='/library.svg' alt='logo' className='h-5 w-5' />
                   <a href="/" className='text-lg'>FSUMI-LIB</a>
                 </div>
-                <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex space-x-4">
+                <div className="hidden sm:ml-10 sm:block">
+                  <div className="flex space-x-5">
                     {navigation.map((item) => (
                       <a
                         key={item.name}
@@ -64,7 +74,14 @@ export default function Example() {
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
+                  <script src="/js/bell.js"></script>
+                    <lord-icon
+                         src="https://cdn.lordicon.com/vspbqszr.json"
+                         trigger="hover"
+                         colors="primary:#ffffff"
+                        style={{ width: '30px', height: '30px' }} >
+                    </lord-icon>
+
                 </button>
 
                 {/* Profile dropdown */}
@@ -75,7 +92,7 @@ export default function Example() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        src="/image16.jpg"
                         alt=""
                       />
                     </Menu.Button>
