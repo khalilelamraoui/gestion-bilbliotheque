@@ -21,7 +21,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({ muted = true, loop = true }
   return (
     <div className="videoSection" style={{ position: 'relative' }}>
       <video
-        className="video"
+        className="video h-[60vh] w-[100%] object-cover object-center"
         autoPlay
         muted={muted}
         loop={loop}

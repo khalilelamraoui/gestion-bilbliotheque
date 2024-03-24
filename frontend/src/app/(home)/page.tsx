@@ -13,12 +13,9 @@ var fn = function () {
 export default function() {
   return (
     <div>
-      <h1 className='text-center mb-20'>Book page</h1>
-      <a href="/available" >available items</a>
+      <Video />
       <HeroParallaxDemo />
-      
       <Book />
-      
     </div>
   )
 }

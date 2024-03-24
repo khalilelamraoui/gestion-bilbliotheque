@@ -27,7 +27,7 @@ declare global {
 
 export default function Example() {
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-gray-800 sticky top-0 z-50">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -57,7 +57,7 @@ export default function Example() {
                         href={item.href}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-900 hover:text-white',
-                          'rounded-xl px-3 py-2 text-sm font-medium'
+                          'rounded-xl px-3 py-2 text-sm font-medium transition-all ease-in-out duration-300'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
