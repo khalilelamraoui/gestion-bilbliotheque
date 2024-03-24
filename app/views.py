@@ -8,3 +8,4 @@ def get_data(request):
     
 def index(request):
     return render_nextjs_page_sync(request)
+    

@@ -8,3 +8,5 @@ npm run dev
 
 npm i framer-motion clsx tailwind-merge
 npm install @headlessui/react @heroicons/react
+
+python -m pip install Pillow
