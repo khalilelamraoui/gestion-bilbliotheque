@@ -1,0 +1,10 @@
+djangorestframework
+django
+djangorestframework 
+django-admin
+django_nextjs
+django-cors-headers
+djoser
+djangorestframework-simplejwt
+wheel
+Pillow
