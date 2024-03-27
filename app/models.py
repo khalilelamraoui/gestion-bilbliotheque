@@ -19,7 +19,7 @@ class Livre(models.Model):
     resume = models.TextField(null=True, blank=True)
     disponibilite = models.CharField(max_length=20)
     emplacement = models.CharField(max_length=255, null=True, blank=True)
-    image_couverture = models.ImageField(upload_to='book_covers', null=True, blank=True)
+    image_couverture = models.ImageField(upload_to='frontend/public/books/', null=True, blank=True)
 
 class Utilisateur(models.Model):
     nom = models.CharField(max_length=255)

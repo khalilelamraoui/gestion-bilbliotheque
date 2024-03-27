@@ -3,13 +3,14 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-
+import image from "@/public/books/9SBlueGALAXY.png";
+import Image from "next/image";
 /**
  * Fetches a book item by ID.
  * @param {number} id The ID of the book item to retrieve.
  */
 async function deleteBook(id) {
-  const res = await fetch(`http://127.0.0.1:8000/api/book/${id}/`, {
+  const res = await fetch(`http://127.0.0.1:8000/api/livre/${id}/`, {
     method: "DELETE",
   });
   if (!res.ok) {
@@ -22,7 +23,7 @@ async function deleteBook(id) {
  * Fetches book data from the server.
  */
 async function getData() {
-  const res = await fetch("http://127.0.0.1:8000/api/book/");
+  const res = await fetch("http://127.0.0.1:8000/api/livre/");
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -35,12 +36,22 @@ async function getData() {
 /**
  * Represents a single book item.
  */
-const BookItem = ({ id, name, quantity, onEdit, onDelete }) => {
+const BookItem = ({ id, titre, auteurs, image_couverture, onEdit, onDelete }) => {
+  const imageUrl = image_couverture;
+  const cleanedImageUrl = imageUrl?.replace("http://127.0.0.1:8000/frontend/public", "");
   return (
     <div className="book-item" data-id={id}>
       <div className="book-item-info">
-        <div className="book-item-name">{name}</div>
-        <div className="book-item-price">{quantity}</div>
+        <div className="book-item-name">{titre}</div>
+        <div className="book-item-price">{auteurs}</div>
+        {cleanedImageUrl && (
+          <Image
+            src={cleanedImageUrl}
+            alt="Book Cover"
+            width={300} // Set width
+            height={200} // Set height
+          />
+        )}
       </div>
       <div className="book-item-actions">
         <button className="edit-button" onClick={onEdit}>
@@ -126,8 +137,8 @@ export default function Page() {
           <BookItem
             key={item.id}
             id={item.id}
-            name={item.name}
-            quantity={item.quantity}
+            titre={item.titre}
+            image_couverture={item.image_couverture}
             onEdit={() => router.push(`/update/${item.id}`)}
             
             onDelete={handleDelete}
