@@ -3,7 +3,6 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import image from "@/public/books/9SBlueGALAXY.png";
 import Image from "next/image";
 /**
  * Fetches a book item by ID.

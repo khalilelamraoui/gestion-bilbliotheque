@@ -100,3 +100,13 @@ input {
 .error-message {
   color: #f44336;
 }
+
+
+.library {
+  background-image: url('/bg-library.jpg');
+  backdrop-filter: blur(5px); /* Add this line to apply the blur effect */
+  background-blend-mode: color-burn;
+}
+.filter-color{
+  background-color:rgba(0, 0, 0, .93) !important;
+}
