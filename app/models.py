@@ -21,21 +21,25 @@ class Livre(models.Model):
     emplacement = models.CharField(max_length=255, null=True, blank=True)
     image_couverture = models.ImageField(upload_to='frontend/public/books/', null=True, blank=True)
 
+
 class Utilisateur(models.Model):
+    massar = models.CharField(max_length=10)
+    cin = models.CharField(max_length=8)
     nom = models.CharField(max_length=255)
     prenom = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
     telephone = models.CharField(max_length=20)
     TYPE_UTILISATEUR_CHOICES = [
-        ('administrateur', 'Administrateur'),
         ('bibliothecaire', 'Bibliothécaire'),
         ('lecteur', 'Lecteur'),
     ]
     type_utilisateur = models.CharField(max_length=20, choices=TYPE_UTILISATEUR_CHOICES)
-    mot_de_passe = models.CharField(max_length=255)
-    date_inscription = models.DateField()
+    password = models.CharField(max_length=255)
+    last_login = models.DateTimeField(null=True, blank=True)
     historique_emprunts = models.TextField(null=True, blank=True)
-
+    def __str__(self):
+        return self.nom + ' ' + self.prenom
+    
 class Emprunt(models.Model):
     date_emprunt = models.DateField()
     date_retour_prevue = models.DateField()

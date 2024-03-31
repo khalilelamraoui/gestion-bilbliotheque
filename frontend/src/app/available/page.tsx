@@ -2,8 +2,17 @@
 
 import React from 'react'
 import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { redirect, useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
+import useSWR from "swr";
+import { fetcher } from "@/app/fetcher";
+
+import { HeroParallaxDemo } from '@/components/Books-hero'
+import Video from '../../components/Video';
+import Book from '../../components/Book';
+
+
+
 /**
  * Fetches a book item by ID.
  * @param {number} id The ID of the book item to retrieve.
@@ -28,9 +37,6 @@ async function getData() {
   }
   return res.json();
 }
-
-
-
 
 /**
  * Represents a single book item.
@@ -78,6 +84,27 @@ export default function Page() {
   const [bookItems, setBookItems] = useState(null);
   const router = useRouter();
   const params = useSearchParams();
+
+
+  const { data: user } = useSWR("/auth/users/me", fetcher);
+
+  console.log(user);
+  console.log(user?.is_superuser);
+  console.log(user?.is_admin);
+  if (user?.email === "admin@gmail.com")
+    console.log("admin");
+  else
+    console.log("not admin");
+    
+    
+  if (user?.is_superuser === false) {
+    redirect("/");
+  }
+  else if (user?.is_superuser === true) {
+    redirect("/available");
+  }
+
+  
 
   // State for displaying a success message
   const [displaySuccessMessage, setDisplaySuccessMessage] = useState({
@@ -146,6 +173,9 @@ export default function Page() {
       ) : (
         <p>Loading...</p>
       )}
+      <Video />
+      <HeroParallaxDemo />
+      <Book />
     </div>
   );
 }
