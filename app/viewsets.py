@@ -17,6 +17,7 @@ class LivreViewSet(viewsets.ModelViewSet):
     queryset = Livre.objects.all()
     serializer_class = LivreSerializer
     permission_classes = [AllowAny]
+
     
 class UtilisateurViewSet(viewsets.ModelViewSet):
     queryset = Utilisateur.objects.all()

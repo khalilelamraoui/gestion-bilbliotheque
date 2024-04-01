@@ -10,7 +10,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import Video from "@/app/(home)/Video";
+import Video from "@/components/Video";
 
 export const HeroParallax = ({
   products,
