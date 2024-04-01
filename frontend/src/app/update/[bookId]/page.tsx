@@ -1,8 +1,4 @@
-interface Params {
-    bookId: string;
-}
 "use client" 
-"use strict" 
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -24,7 +20,7 @@ async function getBook(id: any) {
  * @param {number} id The ID of the menu item to update.
  * @param {Object} data The updated data for the menu item.
  */
-async function updateBook(id: any, data: { name: string; quantity: string; }) {
+async function updateBook(id, data) {
     const res = await fetch(`http://127.0.0.1:8000/api/book/${id}/`, {
       method: "PUT",
       headers: {
@@ -51,7 +47,7 @@ async function updateBook(id: any, data: { name: string; quantity: string; }) {
   
 
 
-const Page = ({ params }: { params: Params }) => {
+const Page = ({ params }) => {
     const router = useRouter();
     const [formData, setFormData] = useState({ name: "", quantity: "" });
     const [isLoading, setIsLoading] = useState(false);

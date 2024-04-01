@@ -42,37 +42,7 @@ INSTALLED_APPS = [
     "app",
     "django_nextjs",
     "corsheaders",
-    "djoser",
-    "rest_framework_simplejwt.token_blacklist",
-    ####
-    "users.apps.UsersConfig",
 ]
-
-####################
-REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
-}
-
-SIMPLE_JWT = {
-    "AUTH_HEADER_TYPES": ("Bearer",),
-}
-
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-
-DJOSER = {
-    "PASSWORD_RESET_CONFIRM_URL": "auth/password/reset-password-confirmation/?uid={uid}&token={token}",
-    "ACTIVATION_URL": "#/activate/{uid}/{token}",
-    "SEND_ACTIVATION_EMAIL": False,
-    "SERIALIZERS": {},
-}
-
-SITE_NAME = "Library Management System"
-
-DOMAIN = 'localhost:3000'
-####################
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -167,4 +137,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = "users.CustomUser"
+# AUTH_USER_MODEL = "app.User"

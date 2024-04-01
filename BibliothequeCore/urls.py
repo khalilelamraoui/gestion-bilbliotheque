@@ -21,15 +21,10 @@ from django.urls import path, include
 from app import views
 from routers import router
 
-from auth.views import LogoutView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include((router.urls, 'core_api'), namespace='core_api')),
-    
-    # Djoser Auth URLS
-    path("auth/", include("djoser.urls")),
-    path("auth/", include("djoser.urls.jwt")),
-    path("auth/logout/", LogoutView.as_view()),
-    
+
 ]

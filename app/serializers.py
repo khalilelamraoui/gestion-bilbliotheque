@@ -15,15 +15,14 @@ class LivreSerializer(serializers.ModelSerializer):
             model = Livre
             fields = ['titre', 'auteurs', 'editeur', 'date_publication', 'isbn', 'genre', 'langue', 'resume', 'disponibilite', 'emplacement', 'image_couverture', 'id']
             read_only_fields = ['id']
-
-
+            
 class UtilisateurSerializer(serializers.ModelSerializer):
     
         class Meta:
             model = Utilisateur
-            fields = ['massar', 'cin', 'nom', 'prenom', 'email', 'telephone', 'type_utilisateur', 'password', 'last_login', 'historique_emprunts', 'id']
-            read_only_fields = ['last_login', 'id']
-
+            fields = ['nom', 'prenom', 'email', 'telephone', 'type_utilisateur', 'mot_de_passe', 'date_inscription', 'historique_emprunts', 'id']
+            read_only_fields = ['date_inscription', 'historique_emprunts', 'id']
+            
 class EmpruntSerializer(serializers.ModelSerializer):
         
         class Meta:
