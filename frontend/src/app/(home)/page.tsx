@@ -20,8 +20,9 @@ var fn = function () {
 type FormData = {
   email: string;
   password: string;
+  massar: string;
 };
-
+console.log(FormData);
 const Login = () => {
   const {
     register,
@@ -33,7 +34,7 @@ const Login = () => {
   const router = useRouter();
   
   const { login, storeToken } = AuthActions();
-  console.log(login);
+  
   const onSubmit = (data: FormData) => {
     login(data.email, data.password)
       .json((json) => {
@@ -45,11 +46,11 @@ const Login = () => {
       .catch((err) => {
         setError("root", { type: "manual", message: err.json.detail });
       });
-    console.log(data);
+    
   };
   
   return (
-    <div className="w-full library h-[93vh] py-10 md:py-20">
+    <div className="w-full library h-[100vh] py-10 md:py-20">
     
       <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black filter-color">
         

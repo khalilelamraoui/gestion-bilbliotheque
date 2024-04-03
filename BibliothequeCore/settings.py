@@ -65,7 +65,7 @@ DJOSER = {
     "PASSWORD_RESET_CONFIRM_URL": "auth/password/reset-password-confirmation/?uid={uid}&token={token}",
     "ACTIVATION_URL": "#/activate/{uid}/{token}",
     "SEND_ACTIVATION_EMAIL": False,
-    "SERIALIZERS": {},
+    "USER_MODEL": "users.CustomUser",
 }
 
 SITE_NAME = "Library Management System"

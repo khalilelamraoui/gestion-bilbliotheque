@@ -38,8 +38,8 @@ const removeTokens = () => {
 // we can write the different methods for login,
 // registration, logout, and password reset logic.
 
-const register = (email: any, username: any, first_name: any, last_name: any, password: any ) => {
-    return api.post({ email, username, first_name, last_name, password }, "/auth/users/");
+const register = (email: any, username: any, password: any ) => {
+    return api.post({ email, username, password }, "/auth/users");
   };
   
 const login = (email: string, password: string) => {

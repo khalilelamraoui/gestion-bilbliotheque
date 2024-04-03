@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
+import useSWR from "swr";
+import { fetcher } from "../fetcher";
 
 /**
  * Sends a POST request to create a new menu item.
@@ -28,6 +30,18 @@ const Page = () => {
     const [formData, setFormData] = useState({ name: "" , quantity: ""});
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    
+    const { data: user } = useSWR("/auth/users/me", fetcher);
+
+    console.log(user);
+    console.log(user?.is_superuser);
+    console.log(user?.is_admin);
+    if (user?.type_utilisateur === "lecteur") {
+      redirect("/");
+    }
+    else if (user?.type_utilisateur === "bibliothequaire") {
+      router.push("/add");
+    }
   
     /**
      * Handles the form submission.
