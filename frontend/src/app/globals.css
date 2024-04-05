@@ -21,15 +21,23 @@
 }
 
 .book-item {
-  border: 1px solid #ddd;
-  padding: 10px;
+  padding: 10px 0;
   margin: 10px;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-around;
   align-items: center;
   background-color: #fff;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+}
+.book-item img{
+  height: 400px;
+  object-fit: cover;
 }
 
 .book-item-info {

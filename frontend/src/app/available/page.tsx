@@ -10,6 +10,7 @@ import { fetcher } from "@/app/fetcher";
 import { HeroParallaxDemo } from '@/components/Books-hero'
 import Video from '../../components/Video';
 import Book from '../../components/Book';
+import Header from '@/components/Header';
 
 
 
@@ -148,34 +149,40 @@ export default function Page() {
   };
 
   return (
-    <div>
-      <button className="add-button" onClick={() => router.push("/add")}>
-        Add
-      </button>
-      {displaySuccessMessage.show && (
-        <p className="success-message">
-          {displaySuccessMessage.type === "add" ? "Added a" : "Modified a"} book
-          item.
-        </p>
-      )}
-      {bookItems ? (
-        bookItems.map((item) => (
-          <BookItem
-            key={item.id}
-            id={item.id}
-            titre={item.titre}
-            image_couverture={item.image_couverture}
-            onEdit={() => router.push(`/update/${item.id}`)}
-            
-            onDelete={handleDelete}
-          />
-        ))
-      ) : (
-        <p>Loading...</p>
-      )}
-      <Video />
-      <HeroParallaxDemo />
-      <Book />
-    </div>
+    <>
+      <Header />
+  
+      <div>
+        {/* <button className="add-button" onClick={() => router.push("/add")}>
+          Add
+        </button>
+        {displaySuccessMessage.show && (
+          <p className="success-message">
+            {displaySuccessMessage.type === "add" ? "Added a" : "Modified a"} book
+            item.
+          </p>
+        )} */}
+        <div className="flex wrap">
+          {bookItems ? (
+            bookItems.map((item) => (
+              <BookItem
+                key={item.id}
+                id={item.id}
+                titre={item.titre}
+                image_couverture={item.image_couverture}
+                onEdit={() => router.push(`/update/${item.id}`)}
+                
+                onDelete={handleDelete}
+              />
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
+        <Video />
+        <HeroParallaxDemo />
+        <Book />
+      </div>
+    </>
   );
 }

@@ -5,6 +5,7 @@ import { fetcher } from "@/app/fetcher";
 import { AuthActions } from "@/app/auth/utils";
 import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
+import { useState } from "react";
 
 export default function Home() {
   const router = useRouter();
@@ -27,7 +28,11 @@ export default function Home() {
       });
   };
   
-  
+  // State for displaying a success message
+  const [displaySuccessMessage, setDisplaySuccessMessage] = useState({
+    show: false,
+    type: "", // either 'add' or 'update'
+  });
   
   // Check if the user is an admin or a lecteur and display the appropriate dashboard page accordingly
   if (user?.type_utilisateur == "lecteur") {
@@ -78,6 +83,15 @@ export default function Home() {
             >
               Disconnect
             </button>
+            <button className="add-button" onClick={() => router.push("/add")}>
+              Add
+            </button>
+            {displaySuccessMessage.show && (
+              <p className="success-message">
+                {displaySuccessMessage.type === "add" ? "Added a" : "Modified a"} book
+                item.
+              </p>
+            )}
           </div>
         </div>
       </>
